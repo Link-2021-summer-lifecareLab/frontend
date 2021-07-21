@@ -29,11 +29,12 @@
                     v-for="(item, i) in items"
                     :key="i"
                 >   
-                    <v-list-item-icon>
-                        <v-icon v-text="item.icon"></v-icon>
-                    </v-list-item-icon>
+                    
                     <v-list-item-content>
-                        <v-list-item-title v-text="item.text"></v-list-item-title>
+                        <v-list-item-title>{{item.name}}</v-list-item-title>
+                    </v-list-item-content>
+                    <v-list-item-content>
+                        <v-list-item-title>{{item.value}}{{item.unit}}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
             </v-list-item-group>
@@ -47,8 +48,9 @@
             color="primary"
             text
             @click="dialog = false"
+            outlined
           >
-            I accept
+            닫기
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -57,11 +59,39 @@
 </template>
 
 <script>
+import capabiltiesList from '../scripts/capabilities.json'
+
 export default {
     props: ['sensorData'],
+    created: function(){
+      this.makeItems()
+      console.log(this.items)
+    },
     computed: {
         getLabel: function(){
             return this.sensorData.label
+        },
+        getText: function(item){
+            return `${item.value}${item.unit}`
+        }
+    },
+    methods: {
+        makeItems: function(){
+            const keys = Object.keys(this.sensorData)  
+            keys.forEach(key=>{
+                const find = capabiltiesList.find(capability => capability.id === key)
+                if(find) {
+                    const attribute = Object.keys(this.sensorData[key])[0]
+                    if(attribute){
+                        this.items.push({
+                        name: attribute,
+                        value: this.sensorData[key][attribute].value,
+                        unit: this.sensorData[key][attribute].unit,
+                        timestamp: this.sensorData[key][attribute].timestamp
+                        })
+                    }
+                }
+            })      
         }
     },
     data: function(){
@@ -69,9 +99,9 @@ export default {
             dialog: false,
             selectedItem: 1,
             items: [
-                { text: 'Real-Time', icon: 'mdi-clock' },
-                { text: 'Audience', icon: 'mdi-account' },
-                { text: 'Conversions', icon: 'mdi-flag' },
+                // { text: 'Real-Time', icon: 'mdi-clock' },
+                // { text: 'Audience', icon: 'mdi-account' },
+                // { text: 'Conversions', icon: 'mdi-flag' },
             ],
         }
     }

@@ -1,0 +1,1107 @@
+[
+        {
+            "id": "accelerationSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "activityLightingMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "activitySensor",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "actuator",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "airConditionerFanMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "airConditionerMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "airFlowDirection",
+            "version": 1,
+            "status": "dead"
+        },
+        {
+            "id": "airPurifierFanMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "airQualitySensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "alarmSystemArmOnly",
+            "version": 1,
+            "status": "dead"
+        },
+        {
+            "id": "alarmSystem",
+            "version": 1,
+            "status": "dead"
+        },
+        {
+            "id": "alarm",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "astronomicalData",
+            "version": 1,
+            "status": "dead"
+        },
+        {
+            "id": "atmosphericPressureMeasurement",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "audioCapture",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "audioMute",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "audioNotification",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "audioStream",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "audioTrackAddressing",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "audioTrackData",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "audioVolume",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "battery",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "beacon",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "bodyMassIndexMeasurement",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "bodyWeightMeasurement",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "bridge",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "bufferedVideoCapture",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "bulb",
+            "version": 1,
+            "status": "dead"
+        },
+        {
+            "id": "button",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "bypassable",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "cameraPreset",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "carbonDioxideHealthConcern",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "carbonDioxideMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "carbonMonoxideDetector",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "carbonMonoxideMeasurement",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "chime",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "colorControl",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "colorTemperature",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "color",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "colorMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "configuration",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "consumable",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "contactSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "demandResponseLoadControl",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "dewPoint",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "dishwasherMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "dishwasherOperatingState",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "dishwasherOperationalState",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "doorControl",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "drivingStatus",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "dryerMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "dryerOperatingState",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "dustHealthConcern",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "dustSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "elevatorCall",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "energyMeter",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "equivalentCarbonDioxideMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "estimatedTimeOfArrival",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "execute",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "fanOscillationMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "fanSpeed",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "feederOperatingState",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "feederPortion",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "filterState",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "filterStatus",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "fineDustHealthConcern",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "fineDustSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "firmwareUpdate",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "formaldehydeMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "garageDoorControl",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "gasDetector",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "gasMeter",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "geofence",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "geofences",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "geolocation",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "healthCheck",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "holdableButton",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "humidifierMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "illuminanceMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "imageCapture",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "indicator",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "infraredLevel",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "languageSetting",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "light",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "locationMode",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "lockCodes",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "lockOnly",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "lock",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "logTrigger",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mediaController",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mediaGroup",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mediaInputSource",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mediaPlaybackRepeat",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mediaPlaybackShuffle",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mediaPlayback",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mediaPresets",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mediaTrackControl",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "mode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "moldHealthConcern",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "momentary",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "motionSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "musicPlayer",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "networkMeter",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "notification",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "objectDetection",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "occupancySensor",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "ocf",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "odorSensor",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "outlet",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "ovenMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "ovenOperatingState",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "ovenOperationalState",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "ovenSetpoint",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "panicAlarm",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "pestControl",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "pHMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "polling",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "powerConsumptionReport",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "powerMeter",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "powerSource",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "precipitationMeasurement",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "precipitationRate",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "precipitationSensor",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "presenceSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "radonHealthConcern",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "radonMeasurement",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "rapidCooling",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "refresh",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "refrigerationSetpoint",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "refrigeration",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "relativeBrightness",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "relativeHumidityMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "relaySwitch",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "remoteControlStatus",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "robotCleanerCleaningMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "robotCleanerMovement",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "robotCleanerState",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "robotCleanerTurboMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "samsungTV",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "scent",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "securitySystem",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "sensor",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "shockSensor",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "signalStrength",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "sleepSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "smokeDetector",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "soundDetection",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "soundPressureLevel",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "soundSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "speechRecognition",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "speechSynthesis",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessAirCleanerModeButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessAudioMuteButton",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "statelessAudioVolumeButton",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "statelessChannelButton",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "statelessCurtainPowerButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessCustomButton",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "statelessFanspeedButton",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "statelessFanspeedModeButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessHumidifierModeButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessMediaPlaybackButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessPowerButton",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "statelessPowerToggleButton",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "statelessRobotCleanerActionButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessRobotCleanerHomeButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessRobotCleanerToggleButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessSetChannelButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessSetChannelByContentButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessSetChannelByNameButton",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "statelessTemperatureButton",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "statelessVolumeButtonWithRepetition",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "stepSensor",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "switchLevel",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "switch",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "tamperAlert",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "temperatureAlarm",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "temperatureMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "testCapability",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "thermostatCoolingSetpoint",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "thermostatFanMode",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "thermostatHeatingSetpoint",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "thermostatMode",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "thermostatOperatingState",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "thermostatSchedule",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "thermostatSetpoint",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "thermostat",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "threeAxis",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "timedSession",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "tone",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "touchSensor",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "tvChannel",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "tV",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "tvocHealthConcern",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "tvocMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "ultravioletIndex",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "valve",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "vehicleEngine",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "vehicleFuelLevel",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "vehicleInformation",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "vehicleOdometer",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "vehicleRange",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "vehicleTirePressureMonitor",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "veryFineDustHealthConcern",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "veryFineDustSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "videoCamera",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "videoCapture",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "videoClips",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "videoStream",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "voltageMeasurement",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "washerMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "washerOperatingState",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "washerOperationalState",
+            "version": 1,
+            "status": "deprecated"
+        },
+        {
+            "id": "waterSensor",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "webrtc",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "wifiMeshRouter",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "windSpeed",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "windowShadeLevel",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "windowShadePreset",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "windowShade",
+            "version": 1,
+            "status": "live"
+        },
+        {
+            "id": "wirelessOperatingMode",
+            "version": 1,
+            "status": "proposed"
+        },
+        {
+            "id": "zwMultichannel",
+            "version": 1,
+            "status": "live"
+        }
+]

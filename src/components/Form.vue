@@ -5,6 +5,7 @@
           <v-text-field
             v-model="address"
             label="웹소켓 주소"
+            placeholder="http://210.107.206.176:3002"
             required
           ></v-text-field>
         </v-col>

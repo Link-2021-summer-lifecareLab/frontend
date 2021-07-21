@@ -21,7 +21,6 @@
         </v-col>
     </v-row>
     
-
     <v-list-item three-line>
       <v-list-item-content>
         <div class="mb-4">
@@ -43,6 +42,13 @@
 
 <script>
 import SensorDialog from './SensorDialog.vue'
+import axios from 'axios'
+
+const authedAxios = axios.create({
+    headers: {
+        Authorization: `Bearer 8ec50db1-58bd-419c-852d-0936a03bfce4`
+    }
+})
 
 export default {
     components: {
@@ -73,8 +79,20 @@ export default {
       }
     },
     methods: {
-        changePower: function(){
+        changePower: async function(){
           this.power = this.power === 'on' ? 'off' : 'on'
+          
+          const body = {
+            "commands": [
+                {
+                "component": "main",
+                "capability": "switch",
+                "command": this.power,
+                "arguments": []
+                }
+            ]
+          }
+          await authedAxios.post(`https://api.smartthings.com/v1/devices/${this.sensorData.deviceId}/commands`, body)
         },
     },
     data: function(){

@@ -29,7 +29,6 @@ export default {
                 this.sensorDataBlob = data
             })
         },
-
     },
     data: function(){
         return {
