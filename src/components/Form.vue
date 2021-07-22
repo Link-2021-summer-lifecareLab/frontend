@@ -27,7 +27,7 @@ export default {
     methods: {
         connectWS: function(){    
             console.log('클릭')
-            this.$emit('showCards', null)
+            // this.$emit('showCards', null)
             this.$emit('showCards', this.address)
         },
     }

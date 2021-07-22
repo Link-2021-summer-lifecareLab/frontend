@@ -18,7 +18,6 @@ export default {
     },
     props: ['address'],
     created: function(){
-        console.log(this.address)
         this.connectWS()
     },    
     methods: {
