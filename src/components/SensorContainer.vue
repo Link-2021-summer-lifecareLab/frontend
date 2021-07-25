@@ -1,6 +1,6 @@
 <template>
   <v-container>
-      <v-row>
+      <v-row v-if="!update">
           <v-col v-for="(sensorData, i) in sensorDataBlob" :key="i" md='3'>
             <sensor-component :sensorData='sensorData'></sensor-component>
           </v-col>
@@ -9,30 +9,53 @@
 </template>
 
 <script>
+import config from '../../config/config.js'
 import {io} from 'socket.io-client'
 import SensorComponent from './SensorComponent.vue'
+import {WS_TOPICS} from '../../config/config'
+import axios from 'axios'
 
 export default {
     components: {
         'sensor-component': SensorComponent
     },
-    props: ['address'],
     created: function(){
-        this.connectWS()
+        
+        this.getDeviceStatus()
+        // this.connectWS()        
     },    
     methods: {
-        connectWS: function(){
-            const socket = io(this.address)
-            socket.on('connect', ()=>console.log('웹소켓 연결됨'))
-            socket.on('test', (data)=>{
-                this.sensorDataBlob = data
-            })
+        getDeviceStatus: async function(){
+            this.update = true
+            const response = await axios.get(`http://localhost:3001/status`)
+            this.sensorDataBlob = response.data
+            console.log(response.data)
+            this.update = false
         },
+        connectWS: function(){
+            const socket = io(config.MANAGER_SERVER_ADDRESS)
+            socket.on('connect', ()=>console.log('웹소켓 연결됨'))
+            
+            WS_TOPICS.forEach(topic=>{
+                socket.on(topic, data=>{
+                    // console.log(data)
+                    this.update = true
+                    this.sensorDataBlob[topic] = data
+                    this.update = false
+                    })
+            })
+            socket.on('disconnect', ()=>{console.log('웹소켓 연결끊김')})    
+        },
+    },
+    computed: {
+        getData: function(){
+            return this.sensorDataBlob[Object.keys(this.sensorDataBlob)]
+        }
     },
     data: function(){
         return {
-            power: 'off',
-            sensorDataBlob: []
+            update: false,
+            sensorDataBlob: {}
         }
     }
 }

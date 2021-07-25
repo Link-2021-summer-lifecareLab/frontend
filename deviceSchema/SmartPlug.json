@@ -1,0 +1,33 @@
+{
+    "powerMeter": {
+        "power": {
+            "value": 0,
+            "unit": "W",
+            "timestamp": "2021-07-20T04:03:35.719Z"
+        }
+    },
+    "powerConsumptionReport": {
+        "powerConsumption": {
+            "value": {
+                "start": "2021-07-25T05:46:58Z",
+                "end": "2021-07-25T06:47:30Z",
+                "energy": 1,
+                "deltaEnergy": 0
+            },
+            "timestamp": "2021-07-25T06:47:30.767Z"
+        }
+    },
+    "energyMeter": {
+        "energy": {
+            "value": 0.001,
+            "unit": "kWh",
+            "timestamp": "2021-07-22T08:58:06.231Z"
+        }
+    },
+    "switch": {
+        "switch": {
+            "value": "off",
+            "timestamp": "2021-07-25T07:03:37.866Z"
+        }
+    }
+}

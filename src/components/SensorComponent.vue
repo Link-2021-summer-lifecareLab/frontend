@@ -11,10 +11,10 @@
         </v-col>
         <v-col cols='8' md='1'>
             <v-btn
+                    v-if="sensorData.switch"
                     class="ma-2"
                     outlined
                     fab
-                    @click="changePower"
             >
             <v-icon>mdi-power-standby</v-icon>
             </v-btn>
@@ -29,7 +29,7 @@
           {{getLabel}}
         </v-list-item-title>
         <v-list-item-subtitle>
-            {{this.power ==='on' ? '켜짐':'꺼짐'}}
+            
         </v-list-item-subtitle>
       </v-list-item-content>
 
@@ -42,13 +42,13 @@
 
 <script>
 import SensorDialog from './SensorDialog.vue'
-import axios from 'axios'
+// import axios from 'axios'
 
-const authedAxios = axios.create({
-    headers: {
-        Authorization: `Bearer 8ec50db1-58bd-419c-852d-0936a03bfce4`
-    }
-})
+// const authedAxios = axios.create({
+//     headers: {
+//         Authorization: `Bearer 8ec50db1-58bd-419c-852d-0936a03bfce4`
+//     }
+// })
 
 export default {
     components: {
@@ -56,53 +56,42 @@ export default {
     },
     props: ['sensorData'],
     created: function(){
-        console.log(this.sensorData)
-        this.power = this.sensorData.switch.switch.value
+        if(this.sensorData.cetegories==="SmartPlug"){
+            // console.log(this.sensorData)
+            // console.log(SmartPlug)
+        }
+        
+        // this.power = this.sensorData.switch.switch.value
     },
     computed: {
       getColor: function(){
-          if(this.power==='on') return 'green'
-          else return 'red'
+        const category = this.sensorData.categories
+        if(category === 'Light' || category === 'SmartPlug'){
+           if(this.sensorData.switch.switch.value === 'off') return 'red' 
+        }
+        return 'green'
       },
       getLabel: function(){
-          return this.sensorData.label
+        return this.sensorData.label
       },
       getIcon: function(){
-          switch(this.sensorData.categories[0].name){
-              case 'Light':
-                  return 'fas fa-lightbulb'
-              case 'SmartPlug':
-                  return 'fas fa-plug'
-              default:
-                  return ''
+          switch(this.sensorData.categories){
+              case 'Light': return 'fas fa-lightbulb'
+              case 'SmartPlug': return 'fas fa-plug'
+              case 'AirQualityDetector': return 'fas fa-snowflake'
+              case 'MultiFunctionalSensor': return 'fas fa-door-open'
+              case 'MotionSensor': return 'fas fa-angle-double-right'
+              default: return ''
           }
       }
     },
     methods: {
-        changePower: async function(){
-          this.power = this.power === 'on' ? 'off' : 'on'
-          
-          const body = {
-            "commands": [
-                {
-                "component": "main",
-                "capability": "switch",
-                "command": this.power,
-                "arguments": []
-                }
-            ]
-          }
-          await authedAxios.post(`https://api.smartthings.com/v1/devices/${this.sensorData.deviceId}/commands`, body)
-        },
+        
     },
     data: function(){
         return {
-            power: 'off',
+            
         }
     }
 }
 </script>
-
-<style>
-
-</style>
