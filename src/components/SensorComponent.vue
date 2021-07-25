@@ -12,6 +12,7 @@
         <v-col cols='8' md='1'>
             <v-btn
                     v-if="sensorData.switch"
+                    @click="powerChange()"
                     class="ma-2"
                     outlined
                     fab
@@ -36,7 +37,9 @@
     </v-list-item>
   </v-card>
 
+ <v-container v-if="!update">
   <sensor-dialog :sensorData='sensorData'></sensor-dialog>
+ </v-container>
 </v-container>
 </template>
 
@@ -55,13 +58,18 @@ export default {
         'sensor-dialog': SensorDialog
     },
     props: ['sensorData'],
-    created: function(){
-        if(this.sensorData.cetegories==="SmartPlug"){
-            // console.log(this.sensorData)
-            // console.log(SmartPlug)
+    watch: {
+        sensorData: {
+            handler: function(){
+                this.update = true
+                // console.log(this.sensorData)
+                this.update = false
+            },
+            deep: true
         }
+    },
+    created: function(){
         
-        // this.power = this.sensorData.switch.switch.value
     },
     computed: {
       getColor: function(){
@@ -86,11 +94,21 @@ export default {
       }
     },
     methods: {
-        
+        powerChange: function(){
+            const topic = this.sensorData.categories === 'Light' ? `bulb/change` : 'plug/change'
+            const data = {
+                deviceId: this.sensorData.deviceId,
+                capability: 'switch',
+                command: this.sensorData.switch.switch.value === 'off' ? 'on' : 'off',
+                arguments: []
+            }
+            // console.log(topic, data)
+            this.$emit('commandDevice', topic, data)
+        }
     },
     data: function(){
         return {
-            
+            update: false
         }
     }
 }

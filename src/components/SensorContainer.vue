@@ -2,7 +2,7 @@
   <v-container>
       <v-row v-if="!update">
           <v-col v-for="(sensorData, i) in sensorDataBlob" :key="i" md='3'>
-            <sensor-component :sensorData='sensorData'></sensor-component>
+            <sensor-component @commandDevice='commandDevice' :sensorData='sensorData'></sensor-component>
           </v-col>
       </v-row>
   </v-container>
@@ -20,16 +20,14 @@ export default {
         'sensor-component': SensorComponent
     },
     created: function(){
-        
         this.getDeviceStatus()
-        // this.connectWS()        
+        this.connectWS()        
     },    
     methods: {
         getDeviceStatus: async function(){
             this.update = true
             const response = await axios.get(`http://localhost:3001/status`)
             this.sensorDataBlob = response.data
-            console.log(response.data)
             this.update = false
         },
         connectWS: function(){
@@ -37,24 +35,30 @@ export default {
             socket.on('connect', ()=>console.log('웹소켓 연결됨'))
             
             WS_TOPICS.forEach(topic=>{
-                socket.on(topic, data=>{
+                socket.on(topic, updateData=>{
                     // console.log(data)
                     this.update = true
-                    this.sensorDataBlob[topic] = data
+                    const index = this.sensorDataBlob.findIndex(sensorData => sensorData.deviceId === updateData.deviceId)
+                    if(index){
+                        const capabilitiy = updateData.capability
+                        const attribute = updateData.attribute
+                        this.sensorDataBlob[index][capabilitiy][attribute].value = updateData.value    
+                    }
                     this.update = false
                     })
             })
             socket.on('disconnect', ()=>{console.log('웹소켓 연결끊김')})    
+            this.socket = socket
         },
-    },
-    computed: {
-        getData: function(){
-            return this.sensorDataBlob[Object.keys(this.sensorDataBlob)]
+        commandDevice: function(topic, data){
+            console.log(topic, data)
+            this.socket.emit(topic, data)
         }
     },
     data: function(){
         return {
             update: false,
+            socket: null,
             sensorDataBlob: {}
         }
     }
