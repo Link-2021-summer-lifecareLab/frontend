@@ -4,9 +4,10 @@
     class="mx-auto"
     max-width="250"
     outlined
+    rounded="xl"
   >
     <v-row>
-        <v-col cols='8' md='7'>
+        <v-col class= "ma-3" cols='8' md='6'>
             <v-icon x-large :color='getColor' class='pl-3 pt-3'>{{getIcon}}</v-icon>
         </v-col>
         <v-col cols='8' md='1'>
@@ -26,7 +27,7 @@
       <v-list-item-content>
         <div class="mb-4">
         </div>
-        <v-list-item-title class="text-h5 mb-1">
+        <v-list-item-title class="text-h6 mb-1">
           {{getLabel}}
         </v-list-item-title>
         <v-list-item-subtitle>
@@ -38,7 +39,7 @@
   </v-card>
 
  <v-container v-if="!update">
-  <sensor-dialog :sensorData='sensorData'></sensor-dialog>
+  <sensor-dialog :sensorData='sensorData' @commandDevice='commandDevice'></sensor-dialog>
  </v-container>
 </v-container>
 </template>
@@ -100,10 +101,14 @@ export default {
                 deviceId: this.sensorData.deviceId,
                 capability: 'switch',
                 command: this.sensorData.switch.switch.value === 'off' ? 'on' : 'off',
-                arguments: []
+                arguments: [],
+                component: "main"
             }
-            // console.log(topic, data)
+            console.log(topic, data)
             this.$emit('commandDevice', topic, data)
+        },
+        commandDevice: function(topic, data){
+          this.$emit('commandDevice', topic, data)
         }
     },
     data: function(){
@@ -113,3 +118,9 @@ export default {
     }
 }
 </script>
+<style>
+  .v-btn--fab.v-size--default {
+    height: 48px;
+    width: 48px;
+}
+</style>

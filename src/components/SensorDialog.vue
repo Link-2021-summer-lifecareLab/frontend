@@ -26,6 +26,45 @@
 
         <v-divider></v-divider>
 
+        <v-color-picker
+          v-if="this.sensorData.categories === 'Light'"
+          dot-size="33"
+          hide-canvas
+
+            hide-inputs
+          show-swatches
+          swatches-max-height="202"
+          v-model="color"
+        >
+        </v-color-picker>
+
+        <v-flex xs12
+        v-if="this.sensorData.categories === 'Light'"
+        class="mt-10">
+          <v-slider
+            v-model="ex3.val"
+            :label="ex3.label"
+            :thumb-color="ex3.color"
+            :thumb-size="24"
+            thumb-label="always"
+            @click="lightChange()"
+          ></v-slider>
+        </v-flex>
+
+        <v-flex xs12
+        v-if="this.sensorData.categories === 'Light'"
+        >
+          <v-slider
+          v-model="ex1.val"
+          :color="ex1.color"
+          :label="ex1.label"
+          :track-color="ex2.color"
+          :max="max"
+          :min="min"
+          @click="ctChange()"
+        ></v-slider>
+        </v-flex>
+
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="primary" text @click="dialog = false" outlined>
@@ -39,10 +78,16 @@
 
 <script>
 import capabiltiesList from "../scripts/capabilities.json";
+import doorSchema from '../schema/door.json'
+import lightSchema from '../schema/bulb.json'
+import motionSchema from '../schema/motion.json'
+import airSchema from '../schema/air.json'
+import plugSchema from '../schema/plug.json'
 
 export default {
   props: ["sensorData"],
   created: function () {
+    //console.log(this.sensorData.categories)
     this.makeItems();
   },
   computed: {
@@ -54,6 +99,24 @@ export default {
     },
   },
   watch: {
+    //  ex3: {
+    //    handler: function(){
+    //      console.log(this.ex3.val)
+    //    },
+    //    deep: true
+    //  },
+    color: {
+      handler: function(){
+        this.colorChange()
+        // console.log(this.color)
+      }
+    },
+    // ex1: {
+    //   handler: function(){
+    //     console.log(this.ex1.val)
+    //   },
+    //   deep: true
+    // },
     sensorData: {
       handler: function () {
         this.items = []
@@ -63,21 +126,89 @@ export default {
     },
   },
   methods: {
-    makeItems: function () {
+    colorChange: function(){
+      const topic = this.sensorData.categories === 'Light' ? `bulb/change` : 'plug/change'
+      const color = this.color.hue / 360 * 100
+      const data = {
+          deviceId: this.sensorData.deviceId,
+          capability: 'colorControl',
+          command: "setHue",
+          arguments: [color],
+          component: "main"
+      }
+     console.log(topic, data)
+    this.$emit('commandDevice', topic, data)
+    },
+    lightChange: function(){
+      const topic = this.sensorData.categories === 'Light' ? `bulb/change` : 'plug/change'
+      const data = {
+          deviceId: this.sensorData.deviceId,
+          capability: 'switchLevel',
+          command: "setLevel",
+          arguments: [this.ex3.val],
+          component: "main"
+      }
+     console.log(topic, data)
+    this.$emit('commandDevice', topic, data)
 
+    },
+    ctChange: function(){
+      const topic = this.sensorData.categories === 'Light' ? `bulb/change` : 'plug/change'
+      const data = {
+          deviceId: this.sensorData.deviceId,
+          capability: 'colorTemperature',
+          command: "setColorTemperature",
+          arguments: [this.ex1.val],
+          component: "main"
+      }
+     //console.log(topic, data)
+    this.$emit('commandDevice', topic, data)
+
+    },
+
+    makeItems: function () {
       const keys = Object.keys(this.sensorData);
-      // console.log(this.sensorData)
+      console.log(this.sensorData)
       keys.forEach((key) => {
         const find = capabiltiesList.find(
           (capability) => capability.id === key
         );      
         if (find) {
-          const attribute = Object.keys(this.sensorData[key])[0]
-          // if(key==='threeAxis') 
-          //   console.log(this.sensorData[key][attribute])          
+          let attribute = Object.keys(this.sensorData[key])[0]
+          let name = attribute
+          if(this.sensorData.categories === 'MultiFunctionalSensor'){
+            
+            if(Object.keys(doorSchema).includes(attribute)){
+                name = doorSchema[attribute]
+            }
+          }
+          if(this.sensorData.categories === 'Light'){
+            
+            if(Object.keys(lightSchema).includes(attribute)){
+                name = lightSchema[attribute]
+            }
+          }
+          if(this.sensorData.categories === 'MotionSensor'){
+            
+            if(Object.keys(motionSchema).includes(attribute)){
+                name = motionSchema[attribute]
+            }
+          }
+          if(this.sensorData.categories === 'SmartPlug'){
+            
+            if(Object.keys(plugSchema).includes(attribute)){
+                name = plugSchema[attribute]
+            }
+          }
+          if(this.sensorData.categories === 'AirQualityDetector'){
+            
+            if(Object.keys(airSchema).includes(attribute)){
+                name = airSchema[attribute]
+            }
+          }
           if (attribute) {
             this.items.push({
-              name: attribute,
+              name: name,
               value: this.sensorData[key][attribute].value,
               unit: this.sensorData[key][attribute].unit,
               timestamp: this.sensorData[key][attribute].timestamp,
@@ -93,6 +224,12 @@ export default {
       dialog: false,
       selectedItem: 1,
       items: [],
+      ex1: { label: '색 온도', val: 25, color: 'orange darken-3' },
+      ex2: { color: 'black lighten-3' },
+      ex3: { label: '밝기', val: 50, color: 'primary' },
+      color: null,
+      min: 1,
+      max: 30000,
     };
   },
 };

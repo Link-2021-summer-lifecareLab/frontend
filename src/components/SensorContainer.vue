@@ -26,7 +26,7 @@ export default {
     methods: {
         getDeviceStatus: async function(){
             this.update = true
-            const response = await axios.get(`http://localhost:3001/status`)
+            const response = await axios.get(`${config.DeviceAddress}/status`)
             this.sensorDataBlob = response.data
             this.update = false
         },
@@ -36,7 +36,9 @@ export default {
             
             WS_TOPICS.forEach(topic=>{
                 socket.on(topic, updateData=>{
-                    // console.log(data)
+                    updateData = JSON.parse(updateData)
+                    console.log(topic, updateData)
+                   
                     this.update = true
                     const index = this.sensorDataBlob.findIndex(sensorData => sensorData.deviceId === updateData.deviceId)
                     if(index){
@@ -51,7 +53,7 @@ export default {
             this.socket = socket
         },
         commandDevice: function(topic, data){
-            console.log(topic, data)
+         console.log(topic, data)
             this.socket.emit(topic, data)
         }
     },
