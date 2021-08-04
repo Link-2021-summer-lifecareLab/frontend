@@ -37,6 +37,7 @@
         items: [
           { title: 'Dashboard', icon: 'mdi-view-dashboard', to:'/' },
           { title: 'Chart', icon: 'mdi-chart-bar', to:'/chart' },
+          { title: 'cube.Js', icon: 'mdi-cube', to:'/cubejs' },
         ],
         right: null,
       }

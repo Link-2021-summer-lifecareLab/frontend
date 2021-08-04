@@ -1,43 +1,51 @@
 <template>
-  <v-container>
-      <v-row v-if="!update">
-          <v-col v-for="(sensorData, i) in sensorDataBlob" :key="i" md='3'>
-            <sensor-component @commandDevice='commandDevice' :sensorData='sensorData'></sensor-component>
-          </v-col>
+    <v-container v-if="!update">
+        <v-row v-for="(sensorData, i) in sensorDataBlob" :key="i">
+            <my-chart-card v-if='hasTimeData(sensorData)' :sensorData='sensorData'></my-chart-card>          
       </v-row>
-  </v-container>
+    </v-container>
 </template>
 
 <script>
-import config from '../../config/config.js'
+import ChartCard from './ChartComponent.vue'
 import {io} from 'socket.io-client'
-import SensorComponent from './SensorComponent.vue'
-import {WS_TOPICS} from '../../config/config'
+import config from '../../../config/config'
 import axios from 'axios'
 
 export default {
-    components: {
-        'sensor-component': SensorComponent
-    },
     created: function(){
-        this.getDeviceStatus()
-        this.connectWS()        
-    },    
+        
+        this.connectWS()
+        this.getDeviceStatus()       
+        
+    },
+    computed: {
+        
+    },
     methods: {
+        hasTimeData: function(sensorData){
+            // console.log(sensorData)
+            if(sensorData.categories=="MultiFunctionalSensor") return true
+            else return false
+        },
         getDeviceStatus: async function(){
             this.update = true
             const response = await axios.get(`${config.MANAGER_SERVER_ADDRESS}/status`)
             this.sensorDataBlob = response.data
+            // console.log(this.sensorDataBlob)
             this.update = false
+            
         },
         connectWS: function(){
             const socket = io(config.MANAGER_SERVER_ADDRESS)
             socket.on('connect', ()=>console.log('웹소켓 연결됨'))
             
-            WS_TOPICS.forEach(topic=>{
+            config.WS_TOPICS.forEach(topic=>{
                 socket.on(topic, updateData=>{
-                    updateData = JSON.parse(updateData)
-                    console.log(topic, updateData)
+                    // console.log(topic, updateData)
+                    // console.log(typeof(updateData))
+                    // updateData = JSON.parse(updateData)
+                    
                    
                     this.update = true
                     const index = this.sensorDataBlob.findIndex(sensorData => sensorData.deviceId === updateData.deviceId)
@@ -52,24 +60,23 @@ export default {
             socket.on('disconnect', ()=>{console.log('웹소켓 연결끊김')})    
             this.socket = socket
         },
-        commandDevice: function(topic, data){
-         console.log(topic, data)
-            this.socket.emit(topic, data)
-        }
+    },
+    beforeDestroy: function(){
+        this.socket.close()
+        this.socket = null
+        console.log('socket 닫습니다')
+    },
+    components: {
+        'my-chart-card': ChartCard
     },
     data: function(){
         return {
-            update: false,
             socket: null,
-            sensorDataBlob: {}
+            sensorDataBlob: null,
+            update: false,
         }
-    },
-    beforeDestroy: function(){
-        this.socket.close();
-        
-        this.socket = null;
-        console.log('socket 닫습니다')
     }
+
 }
 </script>
 

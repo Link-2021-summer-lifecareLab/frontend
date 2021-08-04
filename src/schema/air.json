@@ -1,0 +1,16 @@
+{
+    "humidity": "습도",
+    "battery": "배터리",
+    "carbonDioxideHealthConcern": "이산화탄소 건강 위협도",
+    "carbonDioxide": "이산화탄소",
+    "illuminance": "조도",
+    "airQuality": "공기질",
+    "fineDustHealthConcern": "미세먼지 건강 위협도",
+    "odorLevel": "냄새 수준",
+    "temperature": "온도",
+    "veryFineDustHealthConcern": "초미세먼지 건강 위협도",
+    "checkInterval": "체크 간격",
+    "dustLevel": "먼지 농도",
+    "veryFineDustLevel": "미세먼지 농도",
+    "dustHealthConcern": "먼지 건강 위협도"
+}

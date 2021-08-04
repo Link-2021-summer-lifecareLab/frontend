@@ -1,0 +1,8 @@
+{
+    "contact": "열림감지센서",
+    "threeAxis": "3축 가속도 센서",
+    "temperature": "온도",
+    "checkInterval": "체크 간격",
+    "battery": "배터리",
+    "acceleration": "진동 센서"
+}

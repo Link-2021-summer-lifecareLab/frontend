@@ -11,10 +11,10 @@
         </v-navigation-drawer>
         
       
-      <v-main >
+      
         <!-- <sensor-container>[Link인턴]IoT 프로젝트</sensor-container> -->
         <router-view></router-view>
-      </v-main>
+      
     </v-app>
 </template>
 

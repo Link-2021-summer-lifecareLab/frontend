@@ -136,7 +136,6 @@ export default {
           arguments: [color],
           component: "main"
       }
-     console.log(topic, data)
     this.$emit('commandDevice', topic, data)
     },
     lightChange: function(){
@@ -148,7 +147,6 @@ export default {
           arguments: [this.ex3.val],
           component: "main"
       }
-     console.log(topic, data)
     this.$emit('commandDevice', topic, data)
 
     },
@@ -165,10 +163,8 @@ export default {
     this.$emit('commandDevice', topic, data)
 
     },
-
     makeItems: function () {
       const keys = Object.keys(this.sensorData);
-      console.log(this.sensorData)
       keys.forEach((key) => {
         const find = capabiltiesList.find(
           (capability) => capability.id === key
